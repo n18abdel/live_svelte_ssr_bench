@@ -17,7 +17,7 @@ defmodule LiveSvelteSsrBenchWeb.Router do
   scope "/", LiveSvelteSsrBenchWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", NumbersLive
   end
 
   # Other scopes may use custom stacks.
