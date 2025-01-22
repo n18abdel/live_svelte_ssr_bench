@@ -8,8 +8,10 @@ defmodule LiveSvelteSsrBench.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {NodeJS.Supervisor, [path: LiveSvelte.SSR.NodeJS.server_path(), pool_size: 4]},
       LiveSvelteSsrBenchWeb.Telemetry,
-      {DNSCluster, query: Application.get_env(:live_svelte_ssr_bench, :dns_cluster_query) || :ignore},
+      {DNSCluster,
+       query: Application.get_env(:live_svelte_ssr_bench, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: LiveSvelteSsrBench.PubSub},
       # Start a worker by calling: LiveSvelteSsrBench.Worker.start_link(arg)
       # {LiveSvelteSsrBench.Worker, arg},

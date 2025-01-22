@@ -15,8 +15,9 @@ config :live_svelte_ssr_bench, LiveSvelteSsrBenchWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "AeiteiN8F2eZYk6Vpni+4A1b/8Q/ZYYiHHYRuAkp8wLnMiZm+YWhDkA/MBZ+hlqe",
   watchers: [
-    esbuild:
-      {Esbuild, :install_and_run, [:live_svelte_ssr_bench, ~w(--sourcemap=inline --watch)]},
+    node: ["build.js", "--watch", cd: Path.expand("../assets", __DIR__)],
+    # esbuild:
+    #   {Esbuild, :install_and_run, [:live_svelte_ssr_bench, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:live_svelte_ssr_bench, ~w(--watch)]}
   ]
 

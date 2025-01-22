@@ -85,6 +85,8 @@ defmodule LiveSvelteSsrBenchWeb do
       # Core UI components
       import LiveSvelteSsrBenchWeb.CoreComponents
 
+      import LiveSvelte
+
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
 

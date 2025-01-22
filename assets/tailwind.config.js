@@ -9,7 +9,8 @@ module.exports = {
   content: [
     "./js/**/*.js",
     "../lib/live_svelte_ssr_bench_web.ex",
-    "../lib/live_svelte_ssr_bench_web/**/*.*ex"
+    "../lib/live_svelte_ssr_bench_web/**/*.*ex",
+    "./svelte/**/*.svelte"
   ],
   theme: {
     extend: {

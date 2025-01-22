@@ -37,7 +37,6 @@ defmodule LiveSvelteSsrBench.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 1.0.0"},
       {:floki, ">= 0.30.0", only: :test},
-      {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:heroicons,
        github: "tailwindlabs/heroicons",
@@ -50,7 +49,8 @@ defmodule LiveSvelteSsrBench.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:live_svelte, "~> 0.14.1"}
     ]
   end
 
@@ -63,11 +63,11 @@ defmodule LiveSvelteSsrBench.MixProject do
   defp aliases do
     [
       setup: ["deps.get", "assets.setup", "assets.build"],
-      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind live_svelte_ssr_bench", "esbuild live_svelte_ssr_bench"],
+      "assets.setup": ["tailwind.install --if-missing"],
+      "assets.build": ["tailwind live_svelte_ssr_bench", "cmd --cd assets npm install"],
       "assets.deploy": [
         "tailwind live_svelte_ssr_bench --minify",
-        "esbuild live_svelte_ssr_bench --minify",
+        "cmd --cd assets node build.js --deploy",
         "phx.digest"
       ]
     ]
