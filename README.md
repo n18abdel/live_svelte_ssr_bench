@@ -2,6 +2,14 @@
 
 This repository helps visualise where time is spent when serving a request using [live_svelte](https://github.com/woutdp/live_svelte). It leverages [eFlambè](https://github.com/Stratus3D/eflambe) to generate flamegraphs. This is inspired by [elixir_1brc](https://github.com/rajrajhans/elixir_1brc).
 
+![Example flamegraph](./eflambe_output/ssr_on_bandit_pipeline.png)
+
+## Existing Flamegraphs
+
+- [SSR off: Bandit.Pipeline](https://www.speedscope.app/#profileURL=https://n18abdel.github.io/live_svelte_ssr_bench/eflambe_output/ssr_off_bandit_pipeline.bggg&title=ssr_off_bandit_pipeline)
+- [SSR on: Bandit.Pipeline](https://www.speedscope.app/#profileURL=https://n18abdel.github.io/live_svelte_ssr_bench/eflambe_output/ssr_on_bandit_pipeline.bggg&title=ssr_on_bandit_pipeline)
+- [SSR on: NodeJS.Worker](https://www.speedscope.app/#profileURL=https://n18abdel.github.io/live_svelte_ssr_bench/eflambe_output/ssr_on_nodejs_worker.bggg&title=ssr_on_nodejs_worker)
+
 ## Generating Flamegraphs
 
 Start by launching the server with IEx:
