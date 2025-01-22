@@ -27,7 +27,10 @@ if config_env() == :prod do
   # to check this value into version control, so we use an environment
   # variable instead.
   secret_key_base =
-    System.get_env("SECRET_KEY_BASE") ||
+    System.get_env(
+      "SECRET_KEY_BASE",
+      "TDfxCKGGqpx1mjQPB7JAF2U+Lf0PGVpdaLcM5RwNgigN7NwPF0cko+bbawriu0Y2"
+    ) ||
       raise """
       environment variable SECRET_KEY_BASE is missing.
       You can generate one by calling: mix phx.gen.secret
