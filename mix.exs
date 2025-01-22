@@ -50,7 +50,8 @@ defmodule LiveSvelteSsrBench.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.5"},
-      {:live_svelte, "~> 0.14.1"}
+      {:live_svelte, "~> 0.14.1"},
+      {:eflambe, "~> 0.3.0"}
     ]
   end
 
